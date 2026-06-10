@@ -1,0 +1,75 @@
+{
+  "report_type": "monthly",
+  "month": "2026-06",
+  "date_range": {
+    "start": "2026-06-01",
+    "end": "2026-06-10"
+  },
+  "executive_summary": {
+    "total_academies_reached": 3,
+    "response_rate": "100.0%",
+    "email_open_rate": "55.6%",
+    "contract_rate": "0.0%"
+  },
+  "detailed_metrics": {
+    "total_emails_sent": 9,
+    "total_emails_opened": 5,
+    "total_form_responses": 3,
+    "total_students": 105,
+    "average_students_per_academy": 35.0
+  },
+  "contract_analysis": {
+    "negotiating": 1,
+    "trial": 1,
+    "interested": 1,
+    "contracted": 0,
+    "potential_revenue": "₩10,500,000",
+    "contracted_revenue": "₩0"
+  },
+  "interest_distribution": {
+    "high": 2,
+    "medium": 1,
+    "low": 0
+  },
+  "performance_by_academy": [
+    {
+      "academy": "파주 보컬 아카데미",
+      "interest": "high",
+      "students": 45,
+      "status": "negotiating",
+      "potential_value": "₩5,000,000"
+    },
+    {
+      "academy": "파주 성악학원",
+      "interest": "medium",
+      "students": 32,
+      "status": "interested",
+      "potential_value": "₩3,000,000"
+    },
+    {
+      "academy": "파주 음악학원",
+      "interest": "high",
+      "students": 28,
+      "status": "trial",
+      "potential_value": "₩2,500,000"
+    }
+  ],
+  "trends": {
+    "response_trend": "upward",
+    "engagement_trend": "stable",
+    "conversion_trend": "improving"
+  },
+  "next_month_targets": {
+    "target_response_rate": "50%",
+    "target_contract_rate": "30%",
+    "target_new_academies": 50,
+    "target_revenue": "₩15,000,000"
+  },
+  "action_items": [
+    "높은 관심 학원 2개 계약 체결 (목표: 1개 이상)",
+    "중간 관심 학원 5개에 추가 팔로우업",
+    "SNS 자동화로 50개 추가 학원 접근",
+    "분석 & 리포팅 시스템 고도화",
+    "다른 지역(수원, 성남) 영업 확대"
+  ]
+}

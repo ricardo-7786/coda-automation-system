@@ -1,0 +1,4 @@
+id,academy,contact_person,status,contract_type,contract_value,students,negotiation_stage
+CONTRACT_001,파주 보컬 아카데미,김원장,negotiating,annual,5000000,45,pricing_discussion
+CONTRACT_002,파주 성악학원,이원장,interested,trial,0,32,proposal
+CONTRACT_003,파주 음악학원,박원장,contracted,monthly,2500000,28,trial_period

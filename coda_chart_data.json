@@ -1,0 +1,86 @@
+{
+  "response_rate_chart": {
+    "type": "pie",
+    "title": "응답률",
+    "data": {
+      "labels": [
+        "응답",
+        "미응답"
+      ],
+      "values": [
+        3,
+        0
+      ]
+    }
+  },
+  "interest_distribution_chart": {
+    "type": "bar",
+    "title": "관심도 분포",
+    "data": {
+      "labels": [
+        "높음",
+        "중간",
+        "낮음"
+      ],
+      "values": [
+        2,
+        1,
+        0
+      ]
+    }
+  },
+  "contract_status_chart": {
+    "type": "doughnut",
+    "title": "계약 상태",
+    "data": {
+      "labels": [
+        "협상 중",
+        "체험 중",
+        "관심",
+        "계약"
+      ],
+      "values": [
+        1,
+        1,
+        1,
+        0
+      ]
+    }
+  },
+  "email_open_rate_chart": {
+    "type": "line",
+    "title": "이메일 오픈율",
+    "data": {
+      "labels": [
+        "1주",
+        "2주",
+        "3주",
+        "4주"
+      ],
+      "values": [
+        45,
+        55,
+        65,
+        67
+      ]
+    }
+  },
+  "revenue_potential_chart": {
+    "type": "bar",
+    "title": "수익 잠재력",
+    "data": {
+      "labels": [
+        "협상 중",
+        "체험 중",
+        "관심",
+        "계약"
+      ],
+      "values": [
+        5000000,
+        2500000,
+        3000000,
+        0
+      ]
+    }
+  }
+}

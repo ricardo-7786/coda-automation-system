@@ -1,0 +1,10 @@
+[
+  {
+    "contract_id": "CONTRACT_003",
+    "academy": "파주 음악학원",
+    "old_status": "trial",
+    "new_status": "contracted",
+    "timestamp": "2026-06-10T03:49:27.167467",
+    "notes": "체험 만족도 높음, 계약 완료"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "total_academies": 3,
+  "response_rate": 100.0,
+  "email_open_rate": 55.55555555555556,
+  "total_emails_sent": 9,
+  "total_emails_opened": 5,
+  "contract_status": {
+    "negotiating": 1,
+    "trial": 1,
+    "interested": 1,
+    "contracted": 0
+  },
+  "interest_distribution": {
+    "high": 2,
+    "medium": 1,
+    "low": 0
+  },
+  "total_students": 105,
+  "potential_revenue": 10500000,
+  "contracted_revenue": 0
+}

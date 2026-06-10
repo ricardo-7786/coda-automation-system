@@ -1,0 +1,17 @@
+{
+  "total_contracts": 3,
+  "by_status": {
+    "negotiating": 1,
+    "trial": 1,
+    "interested": 1,
+    "contracted": 0
+  },
+  "total_value": 0,
+  "potential_value": 7500000,
+  "total_students": 105,
+  "by_contract_type": {
+    "annual": 1,
+    "monthly": 1,
+    "trial": 1
+  }
+}

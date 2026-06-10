@@ -1,0 +1,106 @@
+{
+  "logs": [
+    {
+      "platform": "Instagram",
+      "academy": "파주 보컬 아카데미",
+      "account": "paju_vocal_academy",
+      "status": "followed",
+      "timestamp": "2026-06-10T03:49:16.826847",
+      "followers_count": 250
+    },
+    {
+      "platform": "Instagram",
+      "academy": "파주 성악학원",
+      "account": "paju_voice_school",
+      "status": "followed",
+      "timestamp": "2026-06-10T03:49:16.826894",
+      "followers_count": 220
+    },
+    {
+      "platform": "Instagram",
+      "academy": "파주 음악학원",
+      "account": "paju_music_academy",
+      "status": "followed",
+      "timestamp": "2026-06-10T03:49:16.826908",
+      "followers_count": 220
+    },
+    {
+      "platform": "Facebook",
+      "academy": "파주 보컬 아카데미",
+      "page": "pajuvocalacademy",
+      "status": "followed",
+      "timestamp": "2026-06-10T03:49:16.826931",
+      "followers_count": 350
+    },
+    {
+      "platform": "Facebook",
+      "academy": "파주 성악학원",
+      "page": "pajuvoiceschool",
+      "status": "followed",
+      "timestamp": "2026-06-10T03:49:16.826947",
+      "followers_count": 305
+    },
+    {
+      "platform": "Facebook",
+      "academy": "파주 음악학원",
+      "page": "pajumusicacademy",
+      "status": "followed",
+      "timestamp": "2026-06-10T03:49:16.826962",
+      "followers_count": 305
+    },
+    {
+      "platform": "Instagram DM",
+      "academy": "파주 보컬 아카데미",
+      "account": "paju_vocal_academy",
+      "stage": "initial",
+      "message": "안녕하세요! 🎤\n\n저희는 CODA - 보컬 아카데미를 위한 AI 음성 분석 SaaS입니다.\n\n✨ CODA의 주요 기능:\n• 학생 음성 실시간 분석\n• 발성 개선 피드백 자동 생성\n• 수업 효율성 50% 증가\n• 학생 만족도 90% 이상\n\n🎯 파주 지역 음악학원을 위한 특별 제안:\n• 2주 무료 체험\n• 맞춤형 온보딩\n• 24/7 기술 지원\n\n더 알아보고 싶으신가요?\nGoogle Form: https://docs.google.com/forms/d/e/1FAIpQLSfEoqGE9uRYTBrW8fgIw6ohc_8GuDBJc7DT2qN1mV2Tq3UOCw/viewform\n\n감사합니다! 😊",
+      "status": "sent",
+      "timestamp": "2026-06-10T03:49:16.826986"
+    },
+    {
+      "platform": "Instagram DM",
+      "academy": "파주 성악학원",
+      "account": "paju_voice_school",
+      "stage": "initial",
+      "message": "안녕하세요! 🎤\n\n저희는 CODA - 보컬 아카데미를 위한 AI 음성 분석 SaaS입니다.\n\n✨ CODA의 주요 기능:\n• 학생 음성 실시간 분석\n• 발성 개선 피드백 자동 생성\n• 수업 효율성 50% 증가\n• 학생 만족도 90% 이상\n\n🎯 파주 지역 음악학원을 위한 특별 제안:\n• 2주 무료 체험\n• 맞춤형 온보딩\n• 24/7 기술 지원\n\n더 알아보고 싶으신가요?\nGoogle Form: https://docs.google.com/forms/d/e/1FAIpQLSfEoqGE9uRYTBrW8fgIw6ohc_8GuDBJc7DT2qN1mV2Tq3UOCw/viewform\n\n감사합니다! 😊",
+      "status": "sent",
+      "timestamp": "2026-06-10T03:49:16.827004"
+    },
+    {
+      "platform": "Instagram DM",
+      "academy": "파주 음악학원",
+      "account": "paju_music_academy",
+      "stage": "initial",
+      "message": "안녕하세요! 🎤\n\n저희는 CODA - 보컬 아카데미를 위한 AI 음성 분석 SaaS입니다.\n\n✨ CODA의 주요 기능:\n• 학생 음성 실시간 분석\n• 발성 개선 피드백 자동 생성\n• 수업 효율성 50% 증가\n• 학생 만족도 90% 이상\n\n🎯 파주 지역 음악학원을 위한 특별 제안:\n• 2주 무료 체험\n• 맞춤형 온보딩\n• 24/7 기술 지원\n\n더 알아보고 싶으신가요?\nGoogle Form: https://docs.google.com/forms/d/e/1FAIpQLSfEoqGE9uRYTBrW8fgIw6ohc_8GuDBJc7DT2qN1mV2Tq3UOCw/viewform\n\n감사합니다! 😊",
+      "status": "sent",
+      "timestamp": "2026-06-10T03:49:16.827035"
+    }
+  ],
+  "analysis": {
+    "total_follows": 6,
+    "total_dms": 3,
+    "platforms": {
+      "Instagram": 3,
+      "Facebook": 3,
+      "Instagram DM": 3
+    },
+    "academy_engagement": {
+      "파주 보컬 아카데미": {
+        "total_interactions": 3,
+        "instagram_followers": 250,
+        "last_interaction": "2026-06-10T03:49:16.826986"
+      },
+      "파주 성악학원": {
+        "total_interactions": 3,
+        "instagram_followers": 220,
+        "last_interaction": "2026-06-10T03:49:16.827004"
+      },
+      "파주 음악학원": {
+        "total_interactions": 3,
+        "instagram_followers": 220,
+        "last_interaction": "2026-06-10T03:49:16.827035"
+      }
+    }
+  },
+  "timestamp": "2026-06-10T03:49:16.827367"
+}

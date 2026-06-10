@@ -1,0 +1,56 @@
+{
+  "report_type": "weekly",
+  "week": "2026-W23",
+  "date_range": {
+    "start": "2026-06-03",
+    "end": "2026-06-10"
+  },
+  "summary": {
+    "total_academies": 3,
+    "new_responses": 3,
+    "response_rate": "100.0%",
+    "email_open_rate": "55.6%"
+  },
+  "contract_status": {
+    "negotiating": 1,
+    "trial": 1,
+    "interested": 1,
+    "contracted": 0
+  },
+  "interest_distribution": {
+    "high": 2,
+    "medium": 1,
+    "low": 0
+  },
+  "key_metrics": {
+    "total_students": 105,
+    "potential_revenue": "₩10,500,000",
+    "contracted_revenue": "₩0"
+  },
+  "top_performers": [
+    {
+      "academy": "파주 보컬 아카데미",
+      "interest": "high",
+      "students": 45,
+      "status": "negotiating"
+    },
+    {
+      "academy": "파주 성악학원",
+      "interest": "medium",
+      "students": 32,
+      "status": "interested"
+    },
+    {
+      "academy": "파주 음악학원",
+      "interest": "high",
+      "students": 28,
+      "status": "trial"
+    }
+  ],
+  "recommendations": [
+    "높은 관심 학원 2개에 집중 영업 (파주 보컬, 파주 음악)",
+    "중간 관심 학원에 사례 제시 자료 발송",
+    "계약 진행 중인 학원 1개 계약 체결 추진",
+    "SNS 활동도 높은 학원 우선 접근"
+  ]
+}

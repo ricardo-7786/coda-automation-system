@@ -1,0 +1,10 @@
+[
+  {
+    "contract_id": "CONTRACT_003",
+    "academy": "파주 음악학원",
+    "payment_number": 1,
+    "amount": 2500000,
+    "due_date": "2026-07-10T03:49:27.167501",
+    "status": "pending"
+  }
+]

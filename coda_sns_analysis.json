@@ -1,0 +1,26 @@
+{
+  "total_follows": 6,
+  "total_dms": 3,
+  "platforms": {
+    "Instagram": 3,
+    "Facebook": 3,
+    "Instagram DM": 3
+  },
+  "academy_engagement": {
+    "파주 보컬 아카데미": {
+      "total_interactions": 3,
+      "instagram_followers": 250,
+      "last_interaction": "2026-06-10T03:49:16.826986"
+    },
+    "파주 성악학원": {
+      "total_interactions": 3,
+      "instagram_followers": 220,
+      "last_interaction": "2026-06-10T03:49:16.827004"
+    },
+    "파주 음악학원": {
+      "total_interactions": 3,
+      "instagram_followers": 220,
+      "last_interaction": "2026-06-10T03:49:16.827035"
+    }
+  }
+}
