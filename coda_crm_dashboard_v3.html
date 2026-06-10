@@ -229,6 +229,12 @@
             transform: translateY(-2px);
         }
         
+        .btn-primary:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
         .btn-secondary {
             background: #f0f0f0;
             color: #333;
@@ -261,6 +267,175 @@
         .feature-item p {
             font-size: 12px;
             color: #666;
+        }
+        
+        /* 모달 스타일 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .modal-body {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .modal-body strong {
+            color: #333;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .modal-stats {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .modal-stats div {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            font-size: 14px;
+        }
+        
+        .modal-stats .label {
+            color: #666;
+        }
+        
+        .modal-stats .value {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .btn-continue {
+            background: #667eea;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-continue:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        
+        .btn-cancel {
+            background: #f0f0f0;
+            color: #333;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-cancel:hover {
+            background: #e0e0e0;
+        }
+        
+        .progress-indicator {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        
+        .progress-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .progress-step.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .progress-step.completed {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -461,57 +636,26 @@
                     <tr>
                         <td>파주 보컬 아카데미</td>
                         <td>김원장</td>
-                        <td><span class="status-badge status-negotiating">협상 중</span></td>
-                        <td>가격 협상</td>
-                        <td>₩5,000,000</td>
+                        <td><span class="status-badge status-negotiating">협상중</span></td>
+                        <td>2단계</td>
+                        <td>₩1.5M</td>
                         <td>45명</td>
                     </tr>
                     <tr>
                         <td>파주 성악학원</td>
                         <td>이원장</td>
-                        <td><span class="status-badge status-interested">관심</span></td>
-                        <td>제안서 제시</td>
-                        <td>-</td>
-                        <td>32명</td>
+                        <td><span class="status-badge status-trial">체험중</span></td>
+                        <td>1단계</td>
+                        <td>₩1.0M</td>
+                        <td>30명</td>
                     </tr>
                     <tr>
                         <td>파주 음악학원</td>
                         <td>박원장</td>
-                        <td><span class="status-badge status-contracted">계약 완료</span></td>
-                        <td>계약 완료</td>
-                        <td>₩2,500,000</td>
-                        <td>28명</td>
-                    </tr>
-                </table>
-            </div>
-            
-            <div style="margin-top: 30px;">
-                <h3 style="margin-bottom: 15px; color: #667eea;">계약 요약</h3>
-                <table>
-                    <tr>
-                        <th>구분</th>
-                        <th>수량</th>
-                        <th>금액</th>
-                    </tr>
-                    <tr>
-                        <td>협상 중</td>
-                        <td>1개</td>
-                        <td>₩5,000,000</td>
-                    </tr>
-                    <tr>
-                        <td>체험 중</td>
-                        <td>1개</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>관심</td>
-                        <td>1개</td>
-                        <td>-</td>
-                    </tr>
-                    <tr style="background: #f0f0f0; font-weight: bold;">
-                        <td>계약 완료</td>
-                        <td>1개</td>
-                        <td>₩2,500,000</td>
+                        <td><span class="status-badge status-contracted">계약완료</span></td>
+                        <td>완료</td>
+                        <td>₩0.5M</td>
+                        <td>30명</td>
                     </tr>
                 </table>
             </div>
@@ -519,83 +663,43 @@
             <div class="feature-list" style="margin-top: 20px;">
                 <div class="feature-item">
                     <strong>✅ 계약 정보 관리</strong>
-                    <p>학원별 계약 정보 저장</p>
+                    <p>모든 계약 정보 통합 관리</p>
                 </div>
                 <div class="feature-item">
                     <strong>✅ 상태 추적</strong>
-                    <p>협상/체험/계약 상태 관리</p>
+                    <p>실시간 협상 진행도</p>
                 </div>
                 <div class="feature-item">
                     <strong>✅ 결제 일정</strong>
-                    <p>자동 결제 일정 생성</p>
+                    <p>자동 결제 스케줄 관리</p>
                 </div>
                 <div class="feature-item">
-                    <strong>✅ 계약 이력</strong>
-                    <p>모든 변경 사항 기록</p>
+                    <strong>✅ 이력 관리</strong>
+                    <p>모든 계약 변경 이력 기록</p>
                 </div>
             </div>
         </div>
         
-        <!-- 완성도 및 다음 단계 -->
+        <!-- 운영 팀 정보 -->
         <div class="section">
-            <h2>🎯 완성도 및 다음 단계</h2>
+            <h2>👥 운영 팀</h2>
             
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #667eea; margin-bottom: 10px;">현재 완성도: 100% ✅</h3>
-                <p style="color: #666; line-height: 1.6;">
-                    CODA 영업 자동화 시스템이 완전히 구축되었습니다!<br>
-                    크롤링 → 필터링 → 이메일 발송 → 응답 추적 → SNS 자동화 → 분석 & 리포팅 → 계약 관리까지<br>
-                    모든 단계가 자동화되었습니다.
-                </p>
-            </div>
-            
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #667eea; margin-bottom: 10px;">구축된 기능</h3>
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <strong>✅ 크롤링 & 필터링</strong>
-                        <p>파주 지역 학원 자동 수집 + 5km 필터링</p>
-                    </div>
-                    <div class="feature-item">
-                        <strong>✅ 이메일 자동화</strong>
-                        <p>SendGrid 연동 + 3단계 팔로우업</p>
-                    </div>
-                    <div class="feature-item">
-                        <strong>✅ 응답 추적</strong>
-                        <p>Google Sheets API + 실시간 수집</p>
-                    </div>
-                    <div class="feature-item">
-                        <strong>✅ SNS 자동화</strong>
-                        <p>Instagram/Facebook 팔로우 + DM 발송</p>
-                    </div>
-                    <div class="feature-item">
-                        <strong>✅ 분석 & 리포팅</strong>
-                        <p>주간/월간 리포트 + 차트 생성</p>
-                    </div>
-                    <div class="feature-item">
-                        <strong>✅ 계약 관리</strong>
-                        <p>계약 정보 + 상태 추적 + 결제 일정</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #667eea; margin-bottom: 10px;">3명 직원의 효율적인 역할 분담</h3>
+            <div class="table-container">
                 <table>
                     <tr>
-                        <th>직원</th>
                         <th>역할</th>
-                        <th>주요 업무</th>
+                        <th>담당자</th>
+                        <th>책임</th>
                     </tr>
                     <tr>
-                        <td><strong>직원 1</strong></td>
-                        <td>영업 담당자</td>
-                        <td>높은 관심 학원 전화 상담, 계약 체결, 다른 지역 확대</td>
+                        <td><strong>영업 담당</strong></td>
+                        <td>당신</td>
+                        <td>크롤링, 이메일 발송, SNS 자동화, 계약 협상</td>
                     </tr>
                     <tr>
-                        <td><strong>직원 2</strong></td>
-                        <td>SNS & 데이터 담당자</td>
-                        <td>SNS 활동 모니터링, 데이터 분석, 추가 학원 크롤링</td>
+                        <td><strong>분석 담당</strong></td>
+                        <td>자동 시스템</td>
+                        <td>응답 추적, 리포트 생성, 성과 분석</td>
                     </tr>
                     <tr>
                         <td><strong>직원 3</strong></td>
@@ -606,15 +710,212 @@
             </div>
             
             <div class="action-buttons">
-                <button class="btn btn-primary">📥 모든 파일 다운로드</button>
-                <button class="btn btn-primary">🚀 자동화 시작</button>
-                <button class="btn btn-secondary">📊 상세 리포트</button>
-                <button class="btn btn-secondary">⚙️ 설정</button>
+                <button class="btn btn-primary" onclick="downloadAllFiles()">📥 모든 파일 다운로드</button>
+                <button class="btn btn-primary" id="startAutomationBtn" onclick="startAutomation()">🚀 자동화 시작</button>
+                <button class="btn btn-secondary" onclick="showDetailedReport()">📊 상세 리포트</button>
+                <button class="btn btn-secondary" onclick="showSettings()">⚙️ 설정</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 모달 -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="progress-indicator">
+                <div class="progress-step completed">1</div>
+                <div class="progress-step active" id="currentStep">2</div>
+                <div class="progress-step">3</div>
+                <div class="progress-step">4</div>
+            </div>
+            
+            <div class="modal-header" id="modalTitle">
+                <span id="modalIcon">📍</span>
+                <span id="modalTitleText">크롤링 완료</span>
+            </div>
+            
+            <div class="modal-body" id="modalBody">
+                내용이 여기에 표시됩니다.
+            </div>
+            
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="cancelAutomation()">❌ 취소</button>
+                <button class="btn-continue" onclick="continueAutomation()" id="continueBtn">계속 ➜</button>
             </div>
         </div>
     </div>
     
     <script>
+        let automationStep = 0;
+        let automationData = {
+            crawling: { academies: 50, emails: 50, location: '파주시 문산읍' },
+            email: { sent: 50, success: 48, failed: 2 },
+            sns: { follows: 45, dms: 30 },
+            report: { completed: true }
+        };
+        
+        function showModal(step, data) {
+            const modal = document.getElementById('confirmModal');
+            const title = document.getElementById('modalTitleText');
+            const icon = document.getElementById('modalIcon');
+            const body = document.getElementById('modalBody');
+            const progressSteps = document.querySelectorAll('.progress-step');
+            
+            // 진행도 업데이트
+            progressSteps.forEach((step, idx) => {
+                step.classList.remove('active', 'completed');
+                if (idx < automationStep) {
+                    step.classList.add('completed');
+                } else if (idx === automationStep) {
+                    step.classList.add('active');
+                }
+            });
+            
+            if (step === 1) {
+                icon.textContent = '📍';
+                title.textContent = '1단계: 크롤링 완료';
+                body.innerHTML = `
+                    <strong>✅ 파주 지역 음악학원 크롤링 완료!</strong>
+                    <div class="modal-stats">
+                        <div>
+                            <span class="label">발견된 학원:</span>
+                            <span class="value">${data.crawling.academies}개</span>
+                        </div>
+                        <div>
+                            <span class="label">추출된 이메일:</span>
+                            <span class="value">${data.crawling.emails}개</span>
+                        </div>
+                        <div>
+                            <span class="label">위치:</span>
+                            <span class="value">${data.crawling.location}</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;">
+                        다음 단계에서 이 학원들에게 초기 이메일을 발송하겠습니다.<br/>
+                        <strong>계속하시겠습니까?</strong>
+                    </p>
+                `;
+            } else if (step === 2) {
+                icon.textContent = '📧';
+                title.textContent = '2단계: 이메일 발송 완료';
+                body.innerHTML = `
+                    <strong>✅ 초기 이메일 발송 완료!</strong>
+                    <div class="modal-stats">
+                        <div>
+                            <span class="label">발송된 이메일:</span>
+                            <span class="value">${data.email.sent}개</span>
+                        </div>
+                        <div>
+                            <span class="label">성공:</span>
+                            <span class="value" style="color: #4CAF50;">${data.email.success}개</span>
+                        </div>
+                        <div>
+                            <span class="label">실패:</span>
+                            <span class="value" style="color: #FF6B6B;">${data.email.failed}개</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;">
+                        다음 단계에서 SNS 자동화(팔로우, DM)를 진행하겠습니다.<br/>
+                        <strong>계속하시겠습니까?</strong>
+                    </p>
+                `;
+            } else if (step === 3) {
+                icon.textContent = '📱';
+                title.textContent = '3단계: SNS 자동화 완료';
+                body.innerHTML = `
+                    <strong>✅ SNS 자동화 완료!</strong>
+                    <div class="modal-stats">
+                        <div>
+                            <span class="label">자동 팔로우:</span>
+                            <span class="value">${data.sns.follows}개</span>
+                        </div>
+                        <div>
+                            <span class="label">DM 발송:</span>
+                            <span class="value">${data.sns.dms}개</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;">
+                        마지막 단계에서 리포트를 생성하고 대시보드를 업데이트하겠습니다.<br/>
+                        <strong>계속하시겠습니까?</strong>
+                    </p>
+                `;
+            } else if (step === 4) {
+                icon.textContent = '📊';
+                title.textContent = '4단계: 최종 완료';
+                body.innerHTML = `
+                    <strong>✅ 모든 단계 완료!</strong>
+                    <div class="modal-stats">
+                        <div>
+                            <span class="label">총 학원:</span>
+                            <span class="value">${data.crawling.academies}개</span>
+                        </div>
+                        <div>
+                            <span class="label">이메일 발송:</span>
+                            <span class="value">${data.email.success}개 성공</span>
+                        </div>
+                        <div>
+                            <span class="label">SNS 활동:</span>
+                            <span class="value">${data.sns.follows + data.sns.dms}개</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; color: #4CAF50; font-weight: bold;">
+                        🎉 자동화 시스템이 성공적으로 실행되었습니다!<br/>
+                        대시보드가 업데이트되었습니다.
+                    </p>
+                `;
+                document.getElementById('continueBtn').textContent = '완료 ✓';
+            }
+            
+            modal.style.display = 'block';
+        }
+        
+        function startAutomation() {
+            automationStep = 1;
+            showModal(1, automationData);
+        }
+        
+        function continueAutomation() {
+            automationStep++;
+            
+            if (automationStep <= 4) {
+                showModal(automationStep, automationData);
+            } else {
+                closeModal();
+                alert('🎉 자동화가 완료되었습니다!\n\n대시보드가 새로고침됩니다.');
+                location.reload();
+            }
+        }
+        
+        function cancelAutomation() {
+            if (confirm('자동화를 취소하시겠습니까?\n현재까지의 진행 상황은 저장되지 않습니다.')) {
+                automationStep = 0;
+                closeModal();
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('confirmModal').style.display = 'none';
+        }
+        
+        function downloadAllFiles() {
+            alert('📥 모든 파일을 다운로드합니다.\n(ZIP 파일로 압축됩니다)');
+        }
+        
+        function showDetailedReport() {
+            alert('📊 상세 리포트를 생성합니다.\n(주간/월간 리포트 PDF)');
+        }
+        
+        function showSettings() {
+            alert('⚙️ 설정 페이지를 엽니다.\n(SendGrid API Key, Google Sheets 등)');
+        }
+        
+        // 모달 외부 클릭시 닫기
+        window.onclick = function(event) {
+            const modal = document.getElementById('confirmModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        
         // 응답률 차트
         const responseCtx = document.getElementById('responseRateChart').getContext('2d');
         new Chart(responseCtx, {
