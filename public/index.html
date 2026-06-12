@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CODA 파트너 아카데미 - 자동 아웃리치 시스템</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .region-selector h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .region-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: 2px solid #ddd;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      color: #333;
+    }
+
+    button:hover {
+      border-color: #667eea;
+      color: #667eea;
+      background: #f5f7ff;
+    }
+
+    button.active {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+
+    .dashboard {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-header h2 {
+      font-size: 1.5em;
+      color: #333;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-card h3 {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .stat-card .value {
+      font-size: 1.8em;
+      font-weight: 700;
+    }
+
+    .academies-list {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .academies-list h3 {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .academy-item {
+      background: white;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border-left: 4px solid #667eea;
+      font-size: 0.95em;
+    }
+
+    .academy-item strong {
+      color: #333;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .academy-item small {
+      color: #666;
+      display: block;
+      margin: 3px 0;
+    }
+
+    .outreach-plan {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .outreach-plan h3 {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .stage {
+      background: white;
+      padding: 15px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border-left: 4px solid #667eea;
+    }
+
+    .stage h4 {
+      color: #667eea;
+      margin-bottom: 8px;
+      font-size: 1em;
+    }
+
+    .stage p {
+      color: #666;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 20px;
+      color: #999;
+    }
+
+    .error {
+      background: #fee;
+      color: #c33;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 1.8em;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎤 CODA 파트너 아카데미</h1>
+      <p>자동 아웃리치 시스템 - 지역별 학원 정보 및 전략 수립</p>
+    </header>
+
+    <div class="main-grid">
+      <!-- 지역 선택 -->
+      <div class="card region-selector">
+        <h2>지역 선택</h2>
+        <div class="region-buttons" id="regionButtons"></div>
+      </div>
+
+      <!-- 대시보드 -->
+      <div class="card dashboard">
+        <div class="dashboard-header">
+          <h2>📊 대시보드</h2>
+          <span id="selectedRegion" style="color: #667eea; font-weight: 600;"></span>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card">
+            <h3>총 학원</h3>
+            <div class="value" id="totalAcademies">-</div>
+          </div>
+          <div class="stat-card">
+            <h3>응답률</h3>
+            <div class="value" id="responseRate">-</div>
+          </div>
+          <div class="stat-card">
+            <h3>계약률</h3>
+            <div class="value" id="contractRate">-</div>
+          </div>
+          <div class="stat-card">
+            <h3>월 수익</h3>
+            <div class="value" id="monthlyRevenue">-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 학원 목록 -->
+    <div class="card">
+      <div class="academies-list" id="academiesList">
+        <h3>📍 학원 목록</h3>
+        <div class="loading">지역을 선택해주세요</div>
+      </div>
+    </div>
+
+    <!-- 아웃리치 계획 -->
+    <div class="card">
+      <div class="outreach-plan" id="outreachPlan">
+        <h3>📈 3단계 자동 아웃리치 계획</h3>
+        <div class="loading">지역을 선택해주세요</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = 'http://localhost:5000';
+
+    // 지역 버튼 초기화
+    async function initRegionButtons() {
+      try {
+        const response = await fetch(`${API_URL}/api/regions`);
+        const regions = await response.json();
+
+        const container = document.getElementById('regionButtons');
+        container.innerHTML = '';
+
+        regions.forEach(region => {
+          const button = document.createElement('button');
+          button.textContent = `${region.name} (${region.count}개)`;
+          button.onclick = () => selectRegion(region.id, region.name);
+          container.appendChild(button);
+        });
+      } catch (error) {
+        console.error('지역 목록 로드 실패:', error);
+      }
+    }
+
+    // 지역 선택
+    async function selectRegion(regionId, regionName) {
+      // 버튼 활성화 상태 업데이트
+      document.querySelectorAll('.region-buttons button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+
+      document.getElementById('selectedRegion').textContent = regionName;
+
+      // 학원 데이터 로드
+      await loadAcademies(regionId);
+
+      // 아웃리치 계획 생성
+      await generateOutreachPlan(regionId);
+    }
+
+    // 학원 데이터 로드
+    async function loadAcademies(regionId) {
+      try {
+        const response = await fetch(`${API_URL}/api/region/${regionId}`);
+        const data = await response.json();
+
+        // 통계 업데이트
+        document.getElementById('totalAcademies').textContent = data.total_academies;
+
+        // 학원 목록 표시
+        const list = document.getElementById('academiesList');
+        list.innerHTML = '<h3>📍 학원 목록</h3>';
+
+        data.academies.forEach(academy => {
+          const item = document.createElement('div');
+          item.className = 'academy-item';
+          item.innerHTML = `
+            <strong>${academy.name}</strong>
+            <small>📍 ${academy.address}</small>
+            <small>📞 ${academy.phone}</small>
+            <small>📧 ${academy.email}</small>
+          `;
+          list.appendChild(item);
+        });
+      } catch (error) {
+        console.error('학원 데이터 로드 실패:', error);
+      }
+    }
+
+    // 아웃리치 계획 생성
+    async function generateOutreachPlan(regionId) {
+      try {
+        const response = await fetch(`${API_URL}/api/outreach/${regionId}`, {
+          method: 'POST'
+        });
+        const data = await response.json();
+
+        // 통계 업데이트
+        document.getElementById('responseRate').textContent = data.response_rate;
+        document.getElementById('contractRate').textContent = data.contract_rate;
+        document.getElementById('monthlyRevenue').textContent = data.monthly_revenue;
+
+        // 아웃리치 계획 표시
+        const plan = document.getElementById('outreachPlan');
+        plan.innerHTML = `
+          <h3>📈 3단계 자동 아웃리치 계획</h3>
+          <div class="stage">
+            <h4>1️⃣ 1단계: 초기 접촉 (1주)</h4>
+            <p>
+              <strong>목표:</strong> 모든 학원에 CODA 소개 메일 발송<br>
+              <strong>대상:</strong> ${data.stage1_sent}개 학원<br>
+              <strong>전략:</strong> 5km 독점 정책 강조, 수익 계산기 링크 포함
+            </p>
+          </div>
+          <div class="stage">
+            <h4>2️⃣ 2단계: 응답 추적 (2주)</h4>
+            <p>
+              <strong>목표:</strong> 응답한 학원과 상담 일정 확정<br>
+              <strong>예상 응답:</strong> ${data.responses}개 (${data.response_rate})<br>
+              <strong>전략:</strong> 개인화된 제안서 발송, 데모 영상 공유
+            </p>
+          </div>
+          <div class="stage">
+            <h4>3️⃣ 3단계: 계약 체결 (3주)</h4>
+            <p>
+              <strong>목표:</strong> 파트너십 계약 체결<br>
+              <strong>예상 계약:</strong> ${data.contracts}개 (${data.contract_rate})<br>
+              <strong>월 수익:</strong> ${data.monthly_revenue}<br>
+              <strong>연 수익:</strong> ${data.annual_revenue}
+            </p>
+          </div>
+        `;
+      } catch (error) {
+        console.error('아웃리치 계획 생성 실패:', error);
+      }
+    }
+
+    // 초기화
+    initRegionButtons();
+  </script>
+</body>
+</html>
